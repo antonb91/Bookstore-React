@@ -1,0 +1,18 @@
+.search__wrapper {
+  width: 60%;
+  height: 40%;
+  display: flex;
+}
+.search_input {
+    flex-grow: 1;
+    padding: 0 10px;
+    height: 100%;
+    color: black;
+    border: 1px solid rgba(231, 231, 231, 1)
+  }
+  
+.search_input::placeholder {
+    color: black;
+}
+
+  
