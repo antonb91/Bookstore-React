@@ -1,10 +1,7 @@
 import './Input.css'
 import { IInput, INPUT_TYPES } from "../../types";
-import { useSelector } from 'react-redux';
-// import { IStoreState } from '../../types';
 
 const Input = ({ placeholder, label, value, onChange, type, disabled, errorMessage, className }: IInput) => {
-    // const theme = useSelector((state: IStoreState) => state.ui.theme);
     return (
         <div style={{display: 'flex', flexDirection: 'column'}}>
             <label className='label'>{label}</label>

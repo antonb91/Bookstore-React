@@ -1,0 +1,35 @@
+.books__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    margin-top: 72px;
+  }
+  
+  .books__row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .title__wrapper {
+    width: 100%;
+  }
+  .books-title {
+    font-family: Bebas Neue;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 64px;
+    text-align: left;
+    color: rgba(49, 48, 55, 1);
+    display: flex;
+    justify-content: center;
+  }
+  .books__subscribe-wrapper {
+    width: 100%;
+  }
+  .books-subscribe {
+    display: flex;
+    flex-grow: 1;
+  }

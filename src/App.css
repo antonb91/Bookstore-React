@@ -14,7 +14,6 @@ body {
   box-sizing: border-box; 
   color: #313037; 
   background-color: white; 
-  font-family: 'Inter', sans-serif;
   margin: 0 auto; 
 } 
  
@@ -29,47 +28,45 @@ body {
   margin: 0 auto;
 }
 
+@font-face { 
+  font-family: 'Bebas Neue'; 
+  font-style: normal; 
+  font-weight: 400; 
+  src: url('../public/fonts/BebasNeue-Regular.ttf') format('truetype'); 
+} 
 
-
-
-
-
-
-/* .App {
-  text-align: center;
+@font-face { 
+  font-family: 'Bebas Neue'; 
+  font-style: normal; 
+  font-weight: 700; 
+  src: url('../public/fonts/BebasNeue-Bold.ttf') format('truetype'); 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face { 
+  font-family: 'Inter'; 
+  font-style: normal; 
+  font-weight: 400; 
+  src: url('../public/fonts/Inter-Regular.ttf') format('ttf'); 
+} 
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5 { 
+  margin: 0; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@media only screen and (max-width: 414px) {
+body {
+  width: 414px;
+  height: 100%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+header {
+  width: 100%;
+  height: 84px;
 }
-
-.App-link {
-  color: #61dafb;
+.search-icon-block {
+  display: none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+}

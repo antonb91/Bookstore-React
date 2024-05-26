@@ -1,0 +1,13 @@
+.cancel-icon-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    height: 84px;
+    cursor: pointer;
+    background-color: #5360cd;
+}
+  
+.cancel-icon-block-hidden {
+  display: none;
+}

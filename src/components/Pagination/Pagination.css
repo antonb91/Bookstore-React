@@ -1,0 +1,26 @@
+.pagination__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.pagination_button {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+.currentpage__wrapper {
+    display: flex;
+    gap: 20px;
+    font-size: 1.2rem;
+}
+.second {
+    color: #2231aa;
+    cursor: pointer;
+}
+.first {
+    cursor: pointer;
+}
+.third {
+    cursor: pointer;
+}

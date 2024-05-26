@@ -1,0 +1,98 @@
+.signin__page {
+    width: 100%;
+    height: 713px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    position: relative;
+}
+.signin-wrapper {
+    width: 60%;
+    height: 472px;
+    padding: 40px 0px 0px 0px;
+    border: 1px solid rgba(218, 218, 218, 1);
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.signin__input_container {
+    width: 90%;
+    height: 392px;
+    margin: 40px auto;
+    position: relative; 
+    top: 40%; 
+    transform: translateY(-50%);
+    padding: 0;
+}
+
+.reg__form-footer {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+}
+.signin__footer-inner {
+    width: 253px;
+    height: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 24px;
+}
+.reg__form-footer-text {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    color: rgba(141, 142, 151, 1);
+}
+.reg__form-footer-btn {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    color: rgba(49, 48, 55, 1);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+}
+.forgot-btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 32px;
+    text-align: right;    
+    position: absolute;
+    bottom: 35%;
+    text-decoration: none;
+    color: rgba(49, 48, 55, 1);
+
+}
+.signin-btn {
+        width: 100%;
+        height: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 2px 0px 0px 0px;
+        border: none;
+        cursor: pointer;
+        background: rgba(49, 48, 55, 1);
+        font-family: Bebas Neue;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        text-align: center;
+        color: rgba(255, 255, 255, 1);
+        margin-top: 48px;
+        border-radius: 5px;
+    }
+

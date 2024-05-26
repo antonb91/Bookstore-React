@@ -5,15 +5,14 @@
     border-radius: 2px 0px 0px 0px;
     border: none;
     margin-bottom: 40px;
+    border: 1px solid rgba(231, 231, 231, 1)
 }
 .label {
     font-family: Inter;
     font-size: 16px;
-    font-weight: 600;
-    line-height: 20px;
+    font-weight: 700;
+    line-height: 32px;
     text-align: left;
     color: rgba(49, 48, 55, 1);
-}
-.label_dark {
-    color: rgba(141, 142, 151, 1);
+
 }

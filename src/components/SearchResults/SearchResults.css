@@ -1,0 +1,18 @@
+.search__result-wrapper {
+    width: 100%;
+    background-color: rgba(243, 243, 243, 1);
+    display: flex;
+    /* flex-direction: column; */
+    /* flex-grow: 1; */
+}
+.search {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    height: 76vh;
+}
+.book__wrapper {
+    width: 352px;
+    height: 100%;
+    margin-top: 25px;
+}
