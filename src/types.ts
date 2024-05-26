@@ -37,18 +37,18 @@ interface IBook {
 interface ISelectedBook {
     error?: string;
     title: string;
-    subtitle: string;
+    subtitle?: string;
     authors: string;
-    publisher: string;
-    isbn10: number;
+    publisher?: string;
+    isbn10?: number;
     isbn13: number;
-    pages: number;
-    year: number;
-    rating: number;
-    desc: string;
+    pages?: number;
+    year?: number;
+    rating?: number;
+    desc?: string;
     price: number;
     image: string;
-    url: string;
+    url?: string;
     pdf?: {
         [key: string]: string;
         };
@@ -70,7 +70,8 @@ interface IBooksState {
     total: number,
     currentPage: number,
     totalBook: number,
-    currentBook: number
+    currentBook: number,
+    cart: ICart[]
 }
 
 interface IBooksInfo {
@@ -82,7 +83,8 @@ interface IBooksInfo {
 interface IStoreState {
     books: IBooksState,
     limit: number,
-    user: IUserState
+    user: IUserState,
+    cart: ICartState
 }
 
 interface ISignUp {
@@ -112,6 +114,19 @@ interface ISignIn {
     password: string
 }
 
+
+interface ICart {
+    isbn13: number;
+    title: string;
+    price: number;
+    authors: string;
+    image: string
+}
+
+interface ICartState {
+    cart: ICart[];
+}
+
 export type {
     IButton,
     IInput,
@@ -125,5 +140,7 @@ export type {
     IUser,
     IUserState,
     IActivationInfo,
-    ISignIn
+    ISignIn,
+    ICart,
+    ICartState
 }

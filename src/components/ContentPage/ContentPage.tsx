@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { IStoreState, ISelectedBook } from '../../types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { loadSelectedBook } from '../../redux/actionCreators';
+import { loadSelectedBook, addToCart } from '../../redux/actionCreators';
 import { Link } from 'react-router-dom';
 import { Arrow } from '../Icons/Arrow';
 import { Rate } from '../Icons/Rate';
@@ -13,6 +13,7 @@ import { Twitter } from '../Icons/Twitter';
 import { Facebook } from '../Icons/Facebook';
 import { Subscribe } from '../Subscribe';
 import { SimilarBooks } from '../Books';
+import { ICart } from '../../types';
 
   
 const ContentPage = () => {
@@ -68,7 +69,16 @@ const ContentPage = () => {
                         </div>
                         <Button 
                             className='add-btn'
-                            onClick={(event: any) => (event)}
+                            onClick={() => {
+                                const cartItem: ICart = {
+                                    isbn13: selectedBook.isbn13,
+                                    title: selectedBook.title,
+                                    price: selectedBook.price,
+                                    authors: selectedBook.authors,
+                                    image: selectedBook.image
+                                };
+                                dispatch(addToCart(cartItem));
+                            }}
                             children='Add to cart'
                          />
                     </div>

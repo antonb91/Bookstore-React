@@ -1,0 +1,37 @@
+.basket-wrapper {
+    width: 100%;
+    background-color: white;
+}
+.upper__wrapper {
+    margin: 0 auto;
+    width: 50%;
+}
+.basket_header {
+    width: 100%;
+    gap: 32px;
+    margin: 100px 0 0 -90px;
+}
+.basket_header-arrow {
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    color: rgba(49, 48, 55, 1);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.basket_header-title {
+    font-family: Bebas Neue;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 64px;
+    text-align: left;
+    color: rgba(49, 48, 55, 1);
+    margin-top: 20px;
+    margin-bottom: 48px;
+}

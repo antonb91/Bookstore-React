@@ -7,7 +7,8 @@ import {
   SignUp, 
   Books, 
   RegistrationConfirm,
-  ContentPage
+  ContentPage,
+  BasketWindow
 } from './components'
 import {
   BrowserRouter,
@@ -29,6 +30,8 @@ function App() {
                     element={<SignIn />} />
               <Route path='activate/:uid/:token'
                     element={<RegistrationConfirm />} />
+              <Route path='/basket' 
+                    element={<BasketWindow />} />
               <Route path='/new' 
                     element={<Books />} />
               <Route path="books" >

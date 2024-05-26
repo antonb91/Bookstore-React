@@ -23,7 +23,7 @@ const Header = () => {
             <Search />
           <div className='header__icons-wrapper'>
                 <Like />
-                <Basket />
+                <Link to='/basket'> <Basket /> </Link>
                 <Link to='/sign-in'> {!user.id ? <User /> : 
                     <Exit 
                     onClick={() => {

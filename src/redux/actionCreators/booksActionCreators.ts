@@ -1,5 +1,5 @@
-import { IBook, IBooksInfo, IBooksResponse, ISelectedBook } from "../../types";
-import { SET_BOOKS, LOAD_BOOKS, LOAD_SELECTED_BOOK, SET_SELECTED_BOOK, SET_BOOKS_LIMIT, SET_CURRENT_PAGE, SET_CURRENT_BOOK, SET_TOTAL } from '../actionTypes';
+import { IBook, IBooksInfo, IBooksResponse, ISelectedBook, ICart } from "../../types";
+import { SET_BOOKS, LOAD_BOOKS, LOAD_SELECTED_BOOK, SET_SELECTED_BOOK, SET_BOOKS_LIMIT, SET_CURRENT_PAGE, SET_CURRENT_BOOK, SET_TOTAL, ADD_TO_CART } from '../actionTypes';
 import { takeEvery, put } from 'redux-saga/effects'
 
 
@@ -48,6 +48,12 @@ const setCurrentBook = (currentBook: number) => ({
    currentBook
 })
 
+// Добавление в корзину
+const addToCart = (cart: ICart) => ({
+    type: ADD_TO_CART,
+    cart
+});
+
 function* fetchLoadBooks(action: any) {
     const { limit, currentPage, search } = action.booksInfo;
     let url = `https://api.itbook.store/1.0/new`
@@ -82,5 +88,6 @@ export {
     fetchSelectedBook,
     setCurrentPage,
     setCurrentBook,
-    setTotal
+    setTotal,
+    addToCart
 }

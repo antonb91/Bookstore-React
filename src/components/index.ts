@@ -7,4 +7,5 @@ export * from './Books';
 export * from './RegistrationConfirm';
 export * from './SearchResults';
 export * from './ContentPage';
-export * from './Subscribe'
+export * from './Subscribe';
+export * from './BasketWindow'
