@@ -4,15 +4,16 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { activationSignUp } from '../../redux/actionCreators';
 import { Link } from 'react-router-dom';
+import { isConstructorDeclaration } from 'typescript';
 
 
 const RegistrationConfirm = () => {
   const { uid = '', token = '' } = useParams(); 
   const dispatch = useDispatch();
-
+  console.log(uid, token)
   useEffect(() => {
       dispatch(activationSignUp({ uid, token }))
-  }, [])
+  }, [uid, token])
 
     return (
       <div className='confirmation__page'>

@@ -29,7 +29,7 @@
   .books__subscribe-wrapper {
     width: 100%;
   }
-  .books-subscribe {
-    display: flex;
-    flex-grow: 1;
+  .books-subscribe  {
+    margin: 0 auto !important;
+    width: 65% !important;
   }

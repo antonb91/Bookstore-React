@@ -16,7 +16,7 @@ const Subscribe = ({className}: {className?: string}) => {
     }
 
     return (
-        <p className='subscribe__wrapper'>
+        <p className={`subscribe__wrapper ${className}`}>
             <div className='subscribe-inner'>
                 <h1 className='subscribe-title'>
                     Subscribe to Newsletter

@@ -37,15 +37,12 @@ function* signUp(action: any) {
         'Content-Type': 'application/json'
         }
     })
-    if (resp.status === 201) {
-        window.location.pathname = 'activate/:uid/:token'
-    }
 }
 
 function* activationUser(action: any) {
     const resp: Response = yield fetch('https://studapi.teachmeskills.by/auth/users/activation/', {
         method: 'POST',
-        body: JSON.stringify(action.signInData),
+        body: JSON.stringify(action.activateInfo),
         headers: {
         'Content-Type': 'application/json'
         }

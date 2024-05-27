@@ -19,6 +19,7 @@
 .info__container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     flex-grow: 1;
 }
 .book-title {
@@ -30,6 +31,7 @@
     color: rgba(49, 48, 55, 1);
     flex-grow: 1;
     display: flex;
+    min-height: 96px;
     margin-top: 20px;
 }
 .book-author {
