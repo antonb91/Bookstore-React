@@ -1,5 +1,21 @@
-import { IBook, IBooksInfo, IBooksResponse, ISelectedBook, ICart } from "../../types";
-import { SET_BOOKS, LOAD_BOOKS, LOAD_SELECTED_BOOK, SET_SELECTED_BOOK, SET_BOOKS_LIMIT, SET_CURRENT_PAGE, SET_CURRENT_BOOK, SET_TOTAL, ADD_TO_CART } from '../actionTypes';
+import { IBook, IBooksInfo, IBooksResponse, ISelectedBook, ICart, IFavorites } from "../../types";
+import { 
+    SET_BOOKS, 
+    LOAD_BOOKS, 
+    LOAD_SELECTED_BOOK, 
+    SET_SELECTED_BOOK, 
+    SET_BOOKS_LIMIT, 
+    SET_CURRENT_PAGE, 
+    SET_CURRENT_BOOK, 
+    SET_TOTAL, 
+    ADD_TO_CART, 
+    INCREASE_QUANTITY, 
+    DECREASE_QUANTITY, 
+    REMOVE_FROM_CART, 
+    ADD_TO_FAVORITES, 
+    REMOVE_FROM_FAVORITES,
+    CLEAR_CART 
+    } from '../actionTypes';
 import { takeEvery, put } from 'redux-saga/effects'
 
 
@@ -37,7 +53,7 @@ const setTotal = (total: number) => ({
     total
 })
 
-
+// Пагинация
 const setCurrentPage = (currentPage: number) => ({
     type: SET_CURRENT_PAGE,
     currentPage
@@ -54,17 +70,48 @@ const addToCart = (cart: ICart) => ({
     cart
 });
 
+const increaseQuantity = (isbn13: number) => ({
+    type: INCREASE_QUANTITY,
+    isbn13
+});
+
+const decreaseQuantity = (isbn13: number) => ({
+    type: DECREASE_QUANTITY,
+    isbn13
+});
+
+// Удаление из корзины
+const removeFromCart = (isbn13: number) => ({
+        type: REMOVE_FROM_CART,
+        isbn13
+});
+
+const addToFavorites = (favBook: IFavorites) => ({
+    type: ADD_TO_FAVORITES,
+    favBook
+});
+
+const removeFromFavorites = (isbn13: number) => ({
+    type: REMOVE_FROM_FAVORITES,
+    isbn13
+});
+
+const clearCart = () => ({
+    type: CLEAR_CART
+});
+
 function* fetchLoadBooks(action: any) {
     const { limit, currentPage, search } = action.booksInfo;
-    let url = `https://api.itbook.store/1.0/new`
+    let url = `https://api.itbook.store/1.0/new?page=${currentPage}`;
     if (search) {
-        url += '&search=' + search
+        url = `https://api.itbook.store/1.0/search/${search}?page=${currentPage}`;
     }
-    const resp: Response = yield fetch (url)
+    const resp: Response = yield fetch(url);
     const data: IBooksResponse = yield resp.json();
     yield put(setBooks(data.books));
-    // yield put(setTotal(data.count))
 }
+
+
 
 function* fetchSelectedBook(action: any) {
     const resp: Response = yield fetch (`https://api.itbook.store/1.0/books/${action.isbn13}`)
@@ -89,5 +136,11 @@ export {
     setCurrentPage,
     setCurrentBook,
     setTotal,
-    addToCart
+    addToCart,
+    increaseQuantity,
+    decreaseQuantity,
+    removeFromCart,
+    addToFavorites,
+    removeFromFavorites,
+    clearCart
 }

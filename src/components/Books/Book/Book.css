@@ -59,4 +59,7 @@
     flex-grow: 1;
     display: flex;
 }
+.book-url {
+    display: none;
+}
   

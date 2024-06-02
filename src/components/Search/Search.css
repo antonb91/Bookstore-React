@@ -2,17 +2,36 @@
   width: 60%;
   height: 40%;
   display: flex;
+  position: relative;
 }
 .search_input {
     flex-grow: 1;
     padding: 0 10px;
     height: 100%;
     color: black;
-    border: 1px solid rgba(231, 231, 231, 1)
+    border: 1px solid rgba(231, 231, 231, 1);
+    padding-right: 50px;
   }
-  
+.search_input-active {
+  width: 100%;
+}
 .search_input::placeholder {
     color: black;
+}
+.icons {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+}
+@media only screen and (max-width: 850px) {
+  .search_input {
+      padding: 0;
+      width: 20%;
+      height: 30px;
+      margin-top: 10px;
+  }
 }
 
   

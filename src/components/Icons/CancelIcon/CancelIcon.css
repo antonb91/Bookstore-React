@@ -11,3 +11,6 @@
 .cancel-icon-block-hidden {
   display: none;
 }
+.cancel {
+  cursor: pointer;
+}

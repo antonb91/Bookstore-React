@@ -24,3 +24,8 @@
     text-align: left;
     color: rgba(49, 48, 55, 1);
 }
+@media (max-width: 450px) {
+    .books__row {
+        margin-right: 20px;
+      }
+}

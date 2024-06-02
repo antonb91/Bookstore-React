@@ -25,6 +25,7 @@ const SignUp = () => {
 
     const handleSignUp = () => {
         const { confirm, ...other } = formState;
+        alert('To continue registration, go to http://localhost:3000/activate/:uid/:token');
         dispatch(signUpUser(other))
     }
 

@@ -1,0 +1,147 @@
+.favorites__wrapper {
+    width: 100%;
+    min-height: 72vh;
+    box-sizing: border-box;
+    background-color: white;
+}
+.upper__wrapper {
+    margin: 0 auto;
+    width: 50%;
+}
+.fav_header {
+    width: 100%;
+    gap: 32px;
+    margin: 72px 0 0 -90px;
+}
+.fav_header-arrow {
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    color: rgba(49, 48, 55, 1);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.fav_header-title {
+    font-family: Bebas Neue;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 64px;
+    text-align: left;
+    color: rgba(49, 48, 55, 1);
+    margin-top: 20px;
+    margin-bottom: 48px;
+}
+.empty__wrapper {
+    width: 100%;
+    min-height: 83vh;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.empty-fav {
+    color: rgba(49, 48, 55, 1);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+}
+.favorites__item {
+    width: 60%;
+    display: flex;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(231, 231, 231, 1);
+    margin-bottom: 48px;
+}
+.image__fav-wrapper {
+    width: 250px;
+    /* width: 20%; */
+    display: flex;
+    justify-content: center;
+}
+.image-basket {
+    /* width: 50%; */
+}
+.favorites__details {
+    margin: 24px 0 0 32px;
+}
+.details__wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.title__item-fav {
+    font-family: Bebas Neue;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    text-align: left;
+    color: rgba(49, 48, 55, 1);
+    margin-bottom: 32px;
+    text-decoration: none;
+}
+.author__publisher_price-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px
+}
+.author__item-fav {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: rgba(168, 168, 168, 1);
+    
+}
+.publisher__item-fav {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: rgba(168, 168, 168, 1);
+}
+.price__item-fav {
+    font-family: Bebas Neue;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
+    text-align: left;
+    color: rgba(49, 48, 55, 1);  
+}
+.fav__cancel-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 638px) {
+    .favorites__item {
+        display: flex;
+        flex-direction: column;
+    }
+    .favorites__details {
+        margin: 24px 0 0 15px;
+        
+    }
+    .author__publisher_price-wrapper {
+    gap: 15px;
+    }
+    .empty__wrapper {
+        min-height: 82vh;
+        overflow: hidden;
+    }
+    .fav_header-title {
+        font-size: 36px;
+    }
+}
+
+

@@ -25,11 +25,11 @@ interface IInput {
 
 interface IBook {
     title: string,
-    subtitle: string,
+    subtitle?: string,
     isbn13: number,
     price: number,
     image: string,
-    url: string,
+    url?: string,
     backgroundColor?: string,
     onClick?: Function
 }
@@ -71,7 +71,8 @@ interface IBooksState {
     currentPage: number,
     totalBook: number,
     currentBook: number,
-    cart: ICart[]
+    cart: ICart[],
+    favBook: IFavorites[]
 }
 
 interface IBooksInfo {
@@ -84,7 +85,8 @@ interface IStoreState {
     books: IBooksState,
     limit: number,
     user: IUserState,
-    cart: ICartState
+    cart: ICartState,
+    favorites: IFavoritesState
 }
 
 interface ISignUp {
@@ -114,17 +116,30 @@ interface ISignIn {
     password: string
 }
 
-
 interface ICart {
     isbn13: number;
     title: string;
     price: number;
     authors: string;
-    image: string
+    image: string;
+    quantity: number;
 }
 
 interface ICartState {
     cart: ICart[];
+}
+
+interface IFavorites {
+    isbn13: number;
+    title: string;
+    price: number;
+    authors: string;
+    publisher?: string;
+    image: string;
+}
+
+interface IFavoritesState {
+    favBook: IFavorites[];
 }
 
 export type {
@@ -142,5 +157,7 @@ export type {
     IActivationInfo,
     ISignIn,
     ICart,
-    ICartState
+    ICartState,
+    IFavorites,
+    IFavoritesState
 }

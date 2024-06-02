@@ -1,34 +1,59 @@
 import './ContentPage.css';
 import { useParams } from 'react-router-dom'; 
-import { IStoreState, ISelectedBook } from '../../types';
+import { IStoreState, ISelectedBook, IFavorites } from '../../types';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { loadSelectedBook, addToCart } from '../../redux/actionCreators';
+import { useEffect, useState } from 'react';
+import { loadSelectedBook, addToCart, addToFavorites, removeFromFavorites } from '../../redux/actionCreators';
 import { Link } from 'react-router-dom';
 import { Arrow } from '../Icons/Arrow';
 import { Rate } from '../Icons/Rate';
 import { Button } from '../Button';
-import { useState } from 'react';
 import { Twitter } from '../Icons/Twitter';
 import { Facebook } from '../Icons/Facebook';
 import { Subscribe } from '../Subscribe';
 import { SimilarBooks } from '../Books';
 import { ICart } from '../../types';
+import { AddToFav } from '../Icons/AddToFav';
 
-  
 const ContentPage = () => {
     const { isbn13 = '' } = useParams(); 
     const selectedBook = useSelector((state: IStoreState) => state.books.selectedBook);
+    const favorites = useSelector((state: IStoreState) => state.books.favBook);
     const dispatch = useDispatch();
     const [activeTab, setActiveTab] = useState('description');
+    const [isFavorited, setIsFavorited] = useState(false);
 
     useEffect(() => {
-        dispatch(loadSelectedBook(isbn13))
-        console.log('Selected book:', selectedBook)
-    }, [isbn13, dispatch])
+        dispatch(loadSelectedBook(isbn13));
+    }, [isbn13, dispatch]);
+
+    useEffect(() => {
+        if (selectedBook && favorites) {
+            setIsFavorited(favorites.some(book => book.isbn13 === selectedBook.isbn13));
+        }
+    }, [selectedBook, favorites]);
 
     const handleTabClick = (tab: string) => {
         setActiveTab(tab);
+    };
+
+    const handleFavoriteClick = () => {
+        const favBook: IFavorites = {
+            isbn13: selectedBook.isbn13,
+            title: selectedBook.title,
+            price: selectedBook.price,
+            authors: selectedBook.authors,
+            publisher: selectedBook.publisher,
+            image: selectedBook.image
+        };
+
+        if (isFavorited) {
+            dispatch(removeFromFavorites(selectedBook.isbn13));
+        } else {
+            dispatch(addToFavorites(favBook));
+        }
+
+        setIsFavorited(!isFavorited);
     };
 
     return (
@@ -44,6 +69,12 @@ const ContentPage = () => {
                 </div>
                 <div className='content__book-info'>
                     <div className='content__img-container'>
+                        <div className='fav__wrapper'>
+                            <AddToFav 
+                                isFavorited={isFavorited} 
+                                onClick={handleFavoriteClick} 
+                            />
+                        </div>
                         <img className="content__book-image" src={selectedBook.image} alt="img name" />
                     </div>
                     <div className='content__book-infocard'>
@@ -75,12 +106,14 @@ const ContentPage = () => {
                                     title: selectedBook.title,
                                     price: selectedBook.price,
                                     authors: selectedBook.authors,
-                                    image: selectedBook.image
+                                    image: selectedBook.image,
+                                    quantity: 1
                                 };
                                 dispatch(addToCart(cartItem));
                             }}
                             children='Add to cart'
-                         />
+                        />
+                        <a href={selectedBook.url} className='preview'>Preview Book</a>
                     </div>
                 </div>
             </p>
@@ -119,14 +152,11 @@ const ContentPage = () => {
                     </Link>
                 </div>
 
-                <Subscribe />
+                <Subscribe className='subscribe__content-page'/>
                 <SimilarBooks />
             </p>
-
-            
-
         </article>
-    )
+    );
 }
 
-export { ContentPage }
+export { ContentPage };

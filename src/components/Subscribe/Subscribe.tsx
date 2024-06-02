@@ -15,6 +15,10 @@ const Subscribe = ({className}: {className?: string}) => {
         }))
     }
 
+    const handleClick = () => {
+        alert('Congratulations! You subscribed to newsletters');
+      };
+
     return (
         <p className={`subscribe__wrapper ${className}`}>
             <div className='subscribe-inner'>
@@ -36,7 +40,7 @@ const Subscribe = ({className}: {className?: string}) => {
 
                     <Button 
                         className='subscribe-btn'
-                        onClick={(event: any) => (event)}
+                        onClick={handleClick}
                         children='Subscribe'
                     />
                 </div>

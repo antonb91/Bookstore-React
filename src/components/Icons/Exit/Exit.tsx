@@ -1,17 +1,21 @@
 import './Exit.css'
 
-const Exit = ({onClick}: {onClick: Function}) => {
+const Exit = ({className, onClick}: {className?: string, onClick?: () => void}) => {
     return (
         <svg 
-            clip-rule="evenodd" 
-            fill-rule="evenodd" 
+            width="20" 
+            height="20" 
             stroke-linejoin="round" 
             stroke-miterlimit="2" 
-            viewBox="0 0 24 24" 
+            viewBox="0 0 22 22"
+            className='exit'
+            onClick={onClick} 
             xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(-124.235 -157.242)">
         <path 
             d="m128.235 173.242v2c0 2.21 1.791 4 4 4h10c2.21 0 4-1.79 4-4 0-3.329 0-8.67 0-12 0-2.209-1.79-4-4-4-2.859 0-7.14 0-10 0-2.209 0-4 1.791-4 4v2c0 .552.448 1 1 1s1-.448 1-1c0 0 0-.937 0-2 0-1.104.896-2 2-2h10c1.105 0 2 .896 2 2v12c0 1.105-.895 2-2 2-2.859 0-7.14 0-10 0-1.104 0-2-.895-2-2 0-1.062 0-2 0-2 0-.551-.448-1-1-1s-1 .449-1 1zm7.586-5-1.293-1.292c-.39-.391-.39-1.024 0-1.415.391-.39 1.024-.39 1.414 0l3 3c.391.391.391 1.024 0 1.415l-3 3c-.39.39-1.023.39-1.414 0-.39-.391-.39-1.024 0-1.415l1.293-1.293h-8.586c-.552 0-1-.448-1-1 0-.551.448-1 1-1z"/>
+            stroke="#313037" 
+            stroke-width="2" 
         </g>
         </svg>
     )

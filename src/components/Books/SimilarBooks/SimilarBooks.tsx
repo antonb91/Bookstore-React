@@ -1,8 +1,8 @@
+import React, { useEffect, useState } from 'react';
 import { Pagination } from '../../Pagination';
 import './SimilarBooks.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { IStoreState } from '../../../types';
-import { useEffect } from 'react';
 import { loadBooks } from '../../../redux/actionCreators';
 import { IBook } from '../../../types';
 import { Book } from '../Book';
@@ -13,9 +13,17 @@ const SimilarBooks = () => {
   const currentPage = useSelector((state: IStoreState) => state.books.currentPage);
   const total = useSelector((state: IStoreState) => state.books.total);
   const dispatch = useDispatch();
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     dispatch(loadBooks({ limit, currentPage }));
+
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [limit, currentPage, dispatch]);
 
   const colors = [
@@ -35,23 +43,68 @@ const SimilarBooks = () => {
   const renderBooks = () => {
     const startIndex = (currentPage - 1) * limit;
     const currentBooks = books.slice(startIndex, startIndex + limit);
-    return (
-      <div className="books__row">
-        {currentBooks.map((book: IBook) => (
-          <Book 
-            key={book.isbn13}
-            title={book.title}
-            subtitle={book.subtitle}
-            isbn13={book.isbn13}
-            price={book.price}
-            image={book.image}
-            url={book.url}
-            backgroundColor={getRandomColor()}
-            onClick={scrollToTop}
-          />
+    
+    if (windowWidth < 450) {
+      return (
+        <div className="books__row">
+          {currentBooks.slice(0, 1).map((book: IBook) => (
+            <Book 
+              key={book.isbn13}
+              title={book.title}
+              subtitle={book.subtitle}
+              isbn13={book.isbn13}
+              price={book.price}
+              image={book.image}
+              url={book.url}
+              backgroundColor={getRandomColor()}
+              onClick={scrollToTop}
+            />
+          ))}
+        </div>
+      );
+    }
+
+    if (windowWidth < 1100) {
+      return (
+        <div className="books__row">
+          {currentBooks.slice(0, 2).map((book: IBook) => (
+            <Book 
+              key={book.isbn13}
+              title={book.title}
+              subtitle={book.subtitle}
+              isbn13={book.isbn13}
+              price={book.price}
+              image={book.image}
+              url={book.url}
+              backgroundColor={getRandomColor()}
+              onClick={scrollToTop}
+            />
+          ))}
+        </div>
+      );
+    }
+
+    const rows = [];
+    for (let i = 0; i < currentBooks.length; i += 3) {
+      rows.push(
+        <div className="books__row" key={i}>
+          {currentBooks.map((book: IBook) => (
+            <Book 
+              key={book.isbn13}
+              title={book.title}
+              subtitle={book.subtitle}
+              isbn13={book.isbn13}
+              price={book.price}
+              image={book.image}
+              url={book.url}
+              backgroundColor={getRandomColor()}
+              onClick={scrollToTop}
+            />
         ))}
-      </div>
-    );
+        </div>
+      );
+    }
+    return rows;
   };
 
   return (

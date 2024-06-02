@@ -1,18 +1,45 @@
-.search__result-wrapper {
+.books__container {
     width: 100%;
-    background-color: rgba(243, 243, 243, 1);
     display: flex;
-    /* flex-direction: column; */
-    /* flex-grow: 1; */
-}
-.search {
-    display: flex;
-    flex-grow: 1;
     flex-direction: column;
-    height: 76vh;
-}
-.book__wrapper {
-    width: 352px;
-    height: 100%;
-    margin-top: 25px;
-}
+    gap: 16px;
+    padding: 16px;
+    margin-top: 72px;
+    min-height: 75vh;
+    box-sizing: border-box;
+  }
+  
+  .books__row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .title__wrapper {
+    width: 100%;
+  }
+  .books-title {
+    font-family: Bebas Neue;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 64px;
+    text-align: left;
+    color: rgba(49, 48, 55, 1);
+    display: flex;
+    justify-content: center;
+  }
+  .search__results-count {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: rgba(168, 168, 168, 1);
+    display: flex;
+    justify-content: center;
+  }
+  @media only screen and (max-width: 438px) {
+    .books-title {
+        font-size: 36px;
+    }
+  }

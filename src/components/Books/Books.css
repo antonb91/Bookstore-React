@@ -12,7 +12,6 @@
     justify-content: center;
     gap: 16px;
   }
-
   .title__wrapper {
     width: 100%;
   }
@@ -33,3 +32,17 @@
     margin: 0 auto !important;
     width: 65% !important;
   }
+  @media only screen and (max-width: 438px) {
+  .books-title {
+      font-size: 36px;
+  }
+  .books__row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .books__row > * {
+    flex: 0 0 calc(50% - 10px);
+    margin-bottom: 20px;
+  }
+}

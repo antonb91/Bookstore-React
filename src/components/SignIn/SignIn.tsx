@@ -27,7 +27,6 @@ const SignIn = () => {
 
     return (
         <div className='signin__page'>
-
             <div className='signin-wrapper'>
                 <div className='signin__input_container'>
                     <Input 

@@ -8,7 +8,10 @@ import {
   Books, 
   RegistrationConfirm,
   ContentPage,
-  BasketWindow
+  BasketWindow,
+  SearchResults,
+  Favorites,
+  Order
 } from './components'
 import {
   BrowserRouter,
@@ -16,29 +19,33 @@ import {
   Route,
   Navigate
 } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 function App() {
   return (
     <div className='page'>
       <Header />
       <Routes>
-          <Route path="/" >
-            <Route path='/sign-up'
+          <Route path='/' element={<Navigate to='/new' />}/>
+              <Route path='/sign-up'
                     element={<SignUp />} />
               <Route path='/sign-in' 
                     element={<SignIn />} />
               <Route path='activate/:uid/:token'
                     element={<RegistrationConfirm />} />
               <Route path='/basket' 
-                    element={<BasketWindow />} />
+                    element={localStorage.getItem('access') ? <BasketWindow /> : <Navigate to={'/sign-in'}/>}/>
               <Route path='/new' 
                     element={<Books />} />
-              <Route path="books" >
+              <Route path='/books' >
                   <Route path=":isbn13" 
                         element={<ContentPage />} />
               </Route>
-            </Route>
+              <Route path='/search-results' 
+                     element={<SearchResults />} />
+              <Route path='/favorites' 
+                     element={localStorage.getItem('access') ? <Favorites /> : <Navigate to={'/sign-in'}/>}/>
+              <Route path='/order' 
+                     element={<Order />} />
       </Routes>
       <Footer />
            

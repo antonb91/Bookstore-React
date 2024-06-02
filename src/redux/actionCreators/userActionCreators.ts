@@ -2,8 +2,6 @@ import { ISignUp, ISignIn, IUser } from "../../types";
 import { ACTIVATE_SIGN_UP, SIGN_UP_USER, SIGN_IN_USER, GET_USER_INFO, SET_USER } from "../actionTypes/userActionTypes";
 import { IActivationInfo } from "../../types";
 import { put, takeEvery } from "redux-saga/effects";
-import { CLIENT_RENEG_LIMIT } from "tls";
-
 
 const signUpUser = (signUpData: ISignUp) => ({
     type: SIGN_UP_USER,
@@ -61,7 +59,7 @@ function* signIn(action: any) {
         const tokens: { access: string, refresh: string } = yield resp.json();
         localStorage.setItem('access', tokens.access)
         localStorage.setItem('refresh', tokens.refresh)
-        window.location.pathname = '/posts'
+        window.location.pathname = '/new'
     }
 }
 

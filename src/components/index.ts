@@ -8,4 +8,6 @@ export * from './RegistrationConfirm';
 export * from './SearchResults';
 export * from './ContentPage';
 export * from './Subscribe';
-export * from './BasketWindow'
+export * from './BasketWindow';
+export * from './Favorites';
+export * from './Order'

@@ -54,3 +54,23 @@
     color: rgba(255, 255, 255, 1);
     box-sizing: border-box;
 }
+@media (max-width: 850px) {
+    .subscribe__wrapper {
+        padding-top: 12%;
+        padding-bottom: 20%;
+        padding-right: 20%;
+        padding-left: 15%;
+    }
+    .subscribe-input-button {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 15px
+    }
+    .subscribe-btn {
+       padding: 15px;
+    }
+    .subscribe-inner {
+        margin-right: 10px;
+    }
+}

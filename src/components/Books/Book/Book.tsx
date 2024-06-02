@@ -12,7 +12,7 @@ const Book = ({ title, subtitle, isbn13, price, image, url, backgroundColor, onC
         <div className='book__wrapper'>
             <Link to={`/books/${isbn13}`} className="link">
                 <article className='book-article' onClick={scrollToTop}>
-                    <div className='img__container' style={{ backgroundColor }}>
+                    <div className='img__container' style={{ backgroundColor, display: 'flex' }}>
                         <img className='book-img' src={image} alt="img name" />
                     </div>
                     <div className='info__container'>
@@ -22,6 +22,7 @@ const Book = ({ title, subtitle, isbn13, price, image, url, backgroundColor, onC
                             <div className='book-price'>{price}</div>
                             <Rate className='book-rate'/>
                         </div>
+                        <div className='book-url'>{url}</div>
                     </div>
                 </article>
             </Link>

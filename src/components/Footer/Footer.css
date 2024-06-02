@@ -1,6 +1,6 @@
-footer {
+.footer {
     background-color: white;
-    width: 58.5%;
+    width: 100%;
     margin: 0 auto;
     position: relative;
     bottom: 0;
@@ -37,10 +37,10 @@ footer {
     color: rgba(141, 142, 151, 1);
     margin-top: 25px;
 }
-@media only screen and (max-width: 1338px) {
+@media only screen and (max-width: 850px) {
     .footer {
         background-color: white;
-        width: 85%;
+        width: 100%;
         margin: 0 auto;
         position: relative;
         bottom: 0;
