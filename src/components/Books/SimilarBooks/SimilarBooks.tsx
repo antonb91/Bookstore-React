@@ -84,11 +84,10 @@ const SimilarBooks = () => {
       );
     }
 
-    const rows = [];
-    for (let i = 0; i < currentBooks.length; i += 3) {
-      rows.push(
-        <div className="books__row" key={i}>
-          {currentBooks.map((book: IBook) => (
+    if (windowWidth > 1100) {
+      return (
+        <div className="books__row">
+          {currentBooks.slice(0, 6).map((book: IBook) => (
             <Book 
               key={book.isbn13}
               title={book.title}
@@ -104,7 +103,6 @@ const SimilarBooks = () => {
         </div>
       );
     }
-    return rows;
   };
 
   return (

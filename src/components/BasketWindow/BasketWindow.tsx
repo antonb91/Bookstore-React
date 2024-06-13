@@ -55,6 +55,10 @@ const BasketWindow = () => {
     const cleanPrice = (price: string) => parseFloat(price.replace(/[^0-9.-]+/g, ''));
 
     const totalSum = cartItems.reduce((sum, item) => {
+        if (!item.price) {
+            console.warn('Item price is undefined or null:', item);
+            return sum;
+        }
         const price = cleanPrice(item.price.toString());
         const quantity = item.quantity ?? 1;
         return sum + price * quantity;
@@ -65,7 +69,7 @@ const BasketWindow = () => {
 
     return (
         <article className='basket__wrapper'>
-            <p className='upper__wrapper'>
+            <div className='upper__wrapper'>
                 <div className='basket_header'>
                     <div className='basket_header-menu'>
                         <Link to='/new' className='basket_header-arrow'>
@@ -74,9 +78,13 @@ const BasketWindow = () => {
                     </div>
                     <h3 className='basket_header-title'>Your cart</h3>
                 </div>
-            </p>
+            </div>
 
             {cartItems.map((cart) => {
+                if (!cart.price) {
+                    console.warn('Item price is undefined or null:', cart);
+                    return null;
+                }
                 const totalPriceForItem = (cleanPrice(cart.price.toString()) * cart.quantity).toFixed(2);
                 return (
                     <div className='item__wrapper' key={cart.isbn13}>
@@ -105,7 +113,7 @@ const BasketWindow = () => {
                     </div>
                 );
             })}
-            <p className='count'>
+            <div className='count'>
                 <div className='count__wrapper'>
                     <div className='sum__count-wrapper'>
                         <div className='sum-wrapper'>
@@ -129,7 +137,7 @@ const BasketWindow = () => {
                         />
                     </Link>
                 </div>
-            </p>
+            </div>
         </article>
     );
 }

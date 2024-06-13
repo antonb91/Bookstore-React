@@ -5,6 +5,7 @@
     gap: 16px;
     padding: 16px;
     margin-top: 72px;
+    margin-bottom: 15px;
 }
 .books__row {
     display: flex;
@@ -24,8 +25,18 @@
     text-align: left;
     color: rgba(49, 48, 55, 1);
 }
+@media (max-width: 1000px) {
+    .similar__books-wrapper {
+        padding: 0;
+    }
+}
+
 @media (max-width: 450px) {
     .books__row {
         margin-right: 20px;
-      }
+    }
+    .similar__books-wrapper {
+        padding: 16px;
+    }
+
 }

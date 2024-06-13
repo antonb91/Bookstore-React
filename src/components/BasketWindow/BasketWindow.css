@@ -129,6 +129,7 @@
     width: 80%;
     display: flex;
     justify-content: end;
+    margin-bottom: 15px;
 }
 .count__wrapper {
     width: 256px;
